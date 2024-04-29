@@ -82,12 +82,11 @@ class DevcrewCrew():
 		)
   
 	@task
-	def coding_task(self, planning_task) -> Task:
+	def coding_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['coding_task'],
 			agent=self.developer(),
    			output_file='report.md',
-			context=[planning_task]
 		)
   
 	@task
