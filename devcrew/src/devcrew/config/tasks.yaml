@@ -1,0 +1,329 @@
+planning_task:
+  description: >
+    1. Utilize sua ferramenta para acessar a documentação, e as intruções sobre
+    Crew.Ai, contidos em crewai_docs.txt e com base nelas;
+
+    2. Crie uma estrutura de processos Crew.Ai para o projeto
+    contido dentro das tags <projeto></projeto>.
+  
+    <projeto>
+    {project_idea}
+    </projeto>
+
+    Você é um CEO com o objetivo de criar o projeto determinado dentro
+    das tags <projeto></projeto>. Os [AGENTE] serão como os funcionários 
+    e as lideranças de cada projeto, além disso, você deve,
+    seguindo a estrutura do framework Crew.Ai, atribuir
+    [TAREFAS] a cada um dos [AGENTE], você PODE também,
+    atribuir mais de uma tarefa para um [AGENTE].
+
+    Tenha SEMPRE a consciência de que para maximizar os resultados
+    a melhor estratégia é atribuir aos [AGENTE], tarefas específicas.
+
+    Como um especialista em processos, você sabe a maneira mais simples e efetiva
+    de obter um resultado, SEMPRE prezando pela funcionalidade.
+
+    Os [AGENTE] são agrupados por [CREW], Um projeto, pode ter uma ou mais
+    [CREW]. Pense na [CREW] como o setor de uma empresa, e os [AGENTE] são
+    a equipe de determinado setor. Uma [CREW] pode interagir com o OUTPUT de
+    outra [CREW].
+
+    Ficará a seu critério utilizar mais de uma [CREW] ou não, entretanto, você 
+    DEVE informar o motivo da decisão ao final.
+
+    A Estrutura do projeto será diferente caso o Tipo de Processo escolhido seja 
+    Hierárquico, nesse caso, um agente, será atribuido com a função de Manager, 
+    pense nele como um líder de uma equipe, e os demais agentes serão criados normalmente,
+    o Manager terá um objetivo final em mente, e coordenará os demais agentes.
+
+    3. Dentro das tags <critérios></critérios> você irá encontrar quais são os 
+    critérios que você deve usar para determinar se o Execution Process¶ das [CREW]
+    será Sequencial ou Hierárquico.
+
+    <critérios>
+    1. Complexidade da Tarefa
+    - Sequencial: Se a tarefa pode ser decomposta em subtarefas que devem ser executadas em uma ordem específica, sem sobreposição ou necessidade de retorno de informações entre agentes, o processo sequencial é adequado.
+    - Hierárquico: Se a tarefa envolve decisões complexas que precisam ser geridas em diferentes níveis de responsabilidade e colaboração entre agentes, um processo hierárquico pode ser mais eficiente.
+    2. Interdependência entre Tarefas
+    - Sequencial: Ideal para tarefas que são dependentes uma da outra de maneira linear, onde a saída de uma tarefa é a entrada direta para a próxima.
+    - Hierárquico: Melhor para cenários onde tarefas são interdependentes de formas mais complexas e podem necessitar de revisão ou aprovação por um agente de nível superior.
+    3. Autonomia dos Agentes
+    - Sequencial: Funciona bem quando cada agente tem um papel claro e definido, com pouca necessidade de tomada de decisão autônoma ou de colaboração interagentes além da passagem de tarefas.
+    - Hierárquico: Necessário quando os agentes têm maior autonomia e a capacidade de tomar decisões que podem afetar o fluxo de trabalho geral, exigindo coordenação e supervisão.
+    4. Escalabilidade e Flexibilidade
+    - Sequencial: Menos flexível e escalável, pois mudanças em uma parte do processo podem exigir revisões em toda a cadeia de tarefas.
+    - Hierárquico: Mais flexível a mudanças dinâmicas e escalável para projetos maiores ou mais complexos, pois permite ajustes em diferentes níveis de execução sem perturbar todo o processo.
+    5. Velocidade de Execução
+    - Sequencial: Geralmente mais rápido para tarefas simples onde o fluxo linear não causa gargalos.
+    - Hierárquico: Pode ser mais lento devido à necessidade de coordenação entre diferentes níveis, mas isso é compensado pela vantagem em tarefas complexas onde a gestão eficiente pode reduzir o tempo total de execução.
+    6. Clareza e Transparência do Processo
+    - Sequencial: Mais transparente e fácil de monitorar, pois cada passo segue o anterior de maneira clara.
+    - Hierárquico: Pode ser mais opaco, com necessidade de ferramentas ou métodos mais sofisticados para rastrear o progresso e a tomada de decisão em vários níveis.
+    </critérios>
+  expected_output: >
+    # **[Nome do projeto] - ESTRUTURA**
+
+    ## Processo:
+    - Tipo: [Sequential, Hierarchical, etc.]
+      - Descrição: [Descrição do fluxo e interações entre agentes]
+
+    ## Estrutura:
+    ### Crew 1
+    - Descrição: [Descrever a função da Crew como um setor da empresa]
+      - [Nome do Agente 1]: [Função específica dentro da Crew]
+        - Role: [Papel do agente]
+        - Goal: [Objetivo específico do agente]
+        - Task: [Descrição da tarefa a ser realizada]
+        - Delegation: [allow_delegation=False ou True]
+
+      - [Nome do Agente 2]: [Função específica dentro da Crew]
+        - Role: [Papel do agente]
+        - Goal: [Objetivo específico do agente]
+        - Task: [Descrição da tarefa a ser realizada]
+        - Delegation: [allow_delegation=False ou True]
+
+      - [Nome do Agente 3]: [Função específica dentro da Crew]
+        - Role: [Papel do agente]
+        - Goal: [Objetivo específico do agente]
+        - Task: [Descrição da tarefa a ser realizada]
+        - Delegation: [allow_delegation=False ou True]
+        ...
+
+    ### Crew 2 (Opcional)
+    - Descrição: [Descrever a função da Crew como outro setor da empresa]
+      - [Nome do Agente 1]: [Função específica dentro da Crew]
+        - Role: [Papel do agente]
+        - Goal: [Objetivo específico do agente]
+        - Task: [Descrição da tarefa a ser realizada]
+        - Delegation: [allow_delegation=False ou True]
+
+      - [Nome do Agente 2]: [Função específica dentro da Crew]
+        - Role: [Papel do agente]
+        - Goal: [Objetivo específico do agente]
+        - Task: [Descrição da tarefa a ser realizada]
+        - Delegation: [allow_delegation=False ou True]
+
+      - [Nome do Agente 3]: [Função específica dentro da Crew]
+        - Role: [Papel do agente]
+        - Goal: [Objetivo específico do agente]
+        - Task: [Descrição da tarefa a ser realizada]
+        - Delegation: [allow_delegation=False ou True]
+        ...
+
+    ## Explicação Final:
+
+    Explicação clara, EXTREMAMENTE detalhada do raciocínio por trás do processo
+
+    - Qual o motivo do processo ser Sequencial ou Hierarquico.
+    - Quais agentes podem delegar, e o motivo.
+    - Por que você fez esse fluxo de processo e quais podem ser suas falhas.
+    
+prompting_task:
+  description: >
+    Com base na estrutura final do projeto;
+
+    1. Crie prompts para cada AGENT e TASK
+      - Cada AGENT deve ter Role, Goal e Backstory.
+      - Cada TASK deve ter prompt para description e expected_output.
+    
+      AGENT
+        - Role: Descrito como a função ou cargo do Agente dentro do projeto.
+        - Goal: Objetivo final do agente dentro do projeto, considerando sua TASK.
+        - Backstory: Conhecimento prévio e persona que o agente deve assumir para realizar a TASK
+
+      TASK
+        - description: descrição clara e objetiva da tarefa.
+        - expected_output: descrição clara e objetiva de como deverá ser o output da tarefa.
+    
+    2. Crie os prompts de acordo com as instruções contidas dentro das tags <instruções></instruções>.
+
+    <instruções>
+    Respire fundo e siga o passo a passo:
+    1. Faça prompts claros, como se estivesse interagindo com um ser de inteligência limitada. Imagine que qualquer detalhe que você não especificar, ele irá entender errado.
+    Quanto mais contexto e detalhes você fornecer, melhor o agente poderá entender e executar a tarefa.
+    2. Estruture seus prompts de forma visualmente agradável e limpa. Você definitavamente não quer que o ser de inteligência limitada se perca nos seus comandos.
+    3. Forneça exemplos de como a tarefa deve ser realizada ou de resultados esperados. Isso serve como um guia visual ou conceitual.
+    4. Caso aplicável, ofereça templates ou estruturas que o Agente de IA possa seguir.    
+    </instruções>
+
+  expected_output: >
+    [Nome do Agente]:
+      - Role: [Papel do agente]
+      - Goal: [Função específica dentro da Crew]
+      - Backstory: [Contexto para a função e objetivo do agente]
+      ...
+    
+    [nome_da_task]: 
+      - Description: [Descrição da tarefa a ser realizada]
+      - Expected Output: [Descrição detalhada de como será o output da tarefa.]
+      ...
+
+coding_task:
+  description: >
+    Utilize sua ferramenta para acessar a documentação, e as intruções sobre
+    Crew.Ai, contidos em crewai_docs.txt e com base nelas;
+
+    1. Desenvolva uma implementação em Python conforme a lógica previamente 
+    estabelecida. A implementação deve ser baseada nas documentações 
+    específicas do crewai_docs.txt que foram fornecidas. Certifique-se de que todos 
+    os requisitos de funcionalidade e conformidade com as normas do framework 
+    estão sendo seguidos.
+
+    2. Siga exatamente a estrutura definida pelo Engenheiro de processos, atente-se 
+    a quais agentes têm 'allow_delegation' False ou True, e se o 'process' da Crew é
+    Hierarquical ou Sequential.
+
+
+  expected_output: >
+    ##== agents.yaml ==##
+    nome_do_agente:
+      role: >
+        [COPIE O PROMPT AQUI]
+      goal: >
+        [COPIE O PROMPT AQUI]
+      backstory: >
+        [COPIE O PROMPT AQUI]
+    ...
+
+    ##== tasks.yaml ==##
+    task_name:
+      description: >
+        [COPIE O PROMPT AQUI]
+      expected_output: >
+        [COPIE O PROMPT AQUI]
+    ...
+
+    ##== crew.py ==##
+    @CrewBase
+    class NomedacrewCrew():
+      """Nomedacrew Crew"""
+      agents_config = 'config/agents.yaml'
+      tasks_config = 'config/tasks.yaml'
+
+      def __init__(self):
+        self.llm = ChatOpenAI(model_name='gpt-3.5-turbo') 
+
+      @agent
+        def agents_name(self) -> Agent:
+          return Agent(
+            config=self.agents_config['agents_name'],
+            tools=[my_tool1, my_tool2],  # Optional, defaults to an empty list
+            llm=my_llm,  # Optional
+            function_calling_llm=my_llm,  # Optional
+            max_iter=15,  # Optional
+            max_rpm=None, # Optional
+            verbose=True,  # Optional
+            allow_delegation=True,  # Optional
+            step_callback=my_intermediate_step_callback,  # Optional
+            cache=True  # Optional
+            memory=True # Optional
+          )
+
+      @agent
+        def agents_name2(self) -> Agent:
+          return Agent(
+            config=self.agents_config['agents_name2'],
+            tools=[my_tool1, my_tool2],  # Optional, defaults to an empty list
+            llm=my_llm,  # Optional
+            function_calling_llm=my_llm,  # Optional
+            max_iter=15,  # Optional
+            max_rpm=None, # Optional
+            verbose=True,  # Optional
+            allow_delegation=True,  # Optional
+            step_callback=my_intermediate_step_callback,  # Optional
+            cache=True  # Optional
+            memory=True # Optional
+          )
+    ...
+
+      @task
+        def task_name(self) -> Task:
+          return Task(
+            config=self.tasks_config['task_name'],
+            agent=self.agents_name(),
+          )
+
+      @task
+        def task_name2(self) -> Task:
+          return Task(
+            config=self.tasks_config['task_name2'],
+            agent=self.agents_name2(),
+          )
+    ...
+
+      @crew
+      def crew(self) -> Crew:
+        """Creates the CREWNAME crew"""
+        return Crew(
+          agents=self.agents, # Automatically created by the @agent decorator
+          tasks=self.tasks, # Automatically created by the @task decorator
+          process=Process.sequential, # process=Process.hierarchical, In case you wanna use that instead
+          verbose=2,
+        )
+
+    ##== main.py ==##
+    from nome_do_projeto.crew import NomedacrewCrewCrew
+
+    def run():
+        # Replace with your inputs, it will automatically interpolate any tasks and agents information
+        inputs = [
+            'variable_name': 'conteúdo da variável',
+        ] # Instead of using input = square brackets, the correct way is to use input = curly braces.
+        NomedacrewCrewCrew().crew().kickoff(inputs=inputs)
+
+    ##== pyproject.toml ==##
+    [tool.poetry]
+    name = "nome_do_projeto"
+    version = "0.1.0"
+    description = "devcrew using crewAI"
+    authors = ["Your Name <you@example.com>"]
+
+    [tool.poetry.dependencies]
+    python = ">=3.10,<=3.13"
+    crewai = [extras = ["tools"], version = "^0.27.0"] # Instead of using crewai = square brackets, the correct way is to use crewai  = curly braces.
+
+    [tool.poetry.scripts]
+    nome_do_projeto = "nome_do_projeto.main:run"
+
+    [build-system]
+    requires = ["poetry-core"]
+    build-backend = "poetry.core.masonry.api"
+
+compiling_task:
+      description: >
+        1. Utilize sua ferramenta de leitura para acessar o arquivo "report.md".
+
+        2. Em seguida, utilize sua ferramenta de compilação, para segmentar 
+        o conteúdo presente em "report.md" em um arquivo setorizado.
+
+        Dentro do arquivo você encontrará pedaços de código com os seguintes cabeçalho:
+
+        #== agents.yaml ==#
+        #== tasks.yaml ==#
+        #== crew.py ==#
+        #== main.py ==#
+        #== pyproject.toml ==#
+
+
+        Cada cabeçalho serve para ajudá-lo na segmentação,renomeie a pasta nome_do_projeto,
+        com o nome do projeto criado Pelo Engenheiro de Processos. O formato do folder final
+        deve ser o seguinte;
+
+        - projeto_crewai/ 
+          - nome_do_projeto/
+            - src/
+              - nome_do_projeto/
+                - config/
+                  -agents.yaml
+                  -tasks.yaml
+                -tools/
+                  - __init__.py
+                - __init__.py
+                - crew.py
+                - main.py
+          - pyproject.toml
+          - .env
+      expected_output: >
+        Arquivo compilado com sucesso!
+
+
