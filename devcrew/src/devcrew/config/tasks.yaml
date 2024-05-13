@@ -1,0 +1,286 @@
+planning_task:
+  description: >
+    1. Utilize sua ferramenta para acessar a documentação, e as intruções sobre
+    Crew.Ai, contidos em crewai_docs.txt e com base nelas;
+
+    2. Crie uma estrutura de processos Crew.Ai para o projeto
+    contido dentro das tags <projeto></projeto>.
+  
+    <projeto>
+    {project_idea}
+    </projeto>
+
+    Você é um CEO com o objetivo de criar o projeto determinado dentro
+    das tags <projeto></projeto>. Os [AGENTE] serão como os funcionários 
+    e as lideranças de cada projeto, além disso, você deve,
+    seguindo a estrutura do framework Crew.Ai, atribuir
+    [TAREFAS] a cada um dos [AGENTE], você PODE também,
+    atribuir mais de uma tarefa para um [AGENTE].
+
+    Tenha SEMPRE a consciência de que para maximizar os resultados,
+    a melhor estratégia é atribuir aos [AGENTE], tarefas específicas.
+
+    Como um especialista em processos, você sabe a maneira mais simples e efetiva
+    de obter um resultado, SEMPRE prezando pela funcionalidade.
+
+    Os [AGENTE] são agrupados por [CREW], Um projeto, pode ter uma ou mais
+    [CREW]. Pense na [CREW] como o setor de uma empresa, e os [AGENTE] são
+    a equipe de determinado setor. Uma [CREW] pode interagir com o OUTPUT de
+    outra [CREW].
+
+    Ficará a seu critério utilizar mais de uma [CREW] ou não, entretanto, você 
+    DEVE informar o motivo da decisão ao final.
+  expected_output: >
+    # **[Nome do projeto] - ESTRUTURA**
+
+    ## Estrutura:
+    ### Crew 1
+    - Descrição: [Descrever a função da Crew como um setor da empresa]
+      - [Nome do Agente 1]: [Função específica dentro da Crew]
+        - Role: [Papel do agente]
+        - Goal: [Objetivo específico do agente]
+        - Task: [Descrição da tarefa a ser realizada]
+        - Delegation: [allow_delegation=False ou True]
+
+      - [Nome do Agente 2]: [Função específica dentro da Crew]
+        - Role: [Papel do agente]
+        - Goal: [Objetivo específico do agente]
+        - Task: [Descrição da tarefa a ser realizada]
+        - Delegation: [allow_delegation=False ou True]
+
+      - [Nome do Agente 3]: [Função específica dentro da Crew]
+        - Role: [Papel do agente]
+        - Goal: [Objetivo específico do agente]
+        - Task: [Descrição da tarefa a ser realizada]
+        - Delegation: [allow_delegation=False ou True]
+        ...
+
+    ### Crew 2 (Opcional)
+    - Descrição: [Descrever a função da Crew como outro setor da empresa]
+      - [Nome do Agente 1]: [Função específica dentro da Crew]
+        - Role: [Papel do agente]
+        - Goal: [Objetivo específico do agente]
+        - Task: [Descrição da tarefa a ser realizada]
+        - Delegation: [allow_delegation=False ou True]
+
+      - [Nome do Agente 2]: [Função específica dentro da Crew]
+        - Role: [Papel do agente]
+        - Goal: [Objetivo específico do agente]
+        - Task: [Descrição da tarefa a ser realizada]
+        - Delegation: [allow_delegation=False ou True]
+
+      - [Nome do Agente 3]: [Função específica dentro da Crew]
+        - Role: [Papel do agente]
+        - Goal: [Objetivo específico do agente]
+        - Task: [Descrição da tarefa a ser realizada]
+        - Delegation: [allow_delegation=False ou True]
+        ...
+
+    ## Explicação Final:
+
+    Explicação clara, EXTREMAMENTE detalhada do raciocínio por trás do processo
+
+    - Quais agentes podem delegar, e o motivo.
+    - Por que você fez esse fluxo de processo e quais podem ser suas falhas.
+    
+prompting_task:
+  description: >
+    Com base na estrutura final do projeto;
+
+    1. Crie prompts para cada AGENT e TASK
+      - Cada AGENT deve ter Role, Goal e Backstory.
+      - Cada TASK deve ter prompt para description e expected_output.
+    
+      AGENT
+        - Role: Descrito como a função ou cargo do Agente dentro do projeto.
+        - Goal: Objetivo final do agente dentro do projeto, considerando sua TASK.
+        - Backstory: Conhecimento prévio e persona que o agente deve assumir para realizar a TASK
+
+      TASK
+        - description: descrição clara e objetiva da tarefa.
+        - expected_output: descrição clara e objetiva de como deverá ser o output da tarefa.
+    
+    2. Crie os prompts de acordo com as instruções contidas dentro das tags <instruções></instruções>.
+
+    <instruções>
+    Respire fundo e siga o passo a passo:
+    1. Faça prompts claros, como se estivesse interagindo com um ser de inteligência limitada. Imagine que qualquer detalhe que você não especificar, ele irá entender errado.
+    Quanto mais contexto e detalhes você fornecer, melhor o agente poderá entender e executar a tarefa.
+    2. Estruture seus prompts de forma visualmente agradável e limpa. Você definitavamente não quer que o ser de inteligência limitada se perca nos seus comandos.
+    3. Forneça exemplos de como a tarefa deve ser realizada ou de resultados esperados. Isso serve como um guia visual ou conceitual.
+    4. Caso aplicável, ofereça templates ou estruturas que o Agente de IA possa seguir.    
+    </instruções>
+
+  expected_output: >
+    [Nome do Agente]:
+      - Role: [Papel do agente]
+      - Goal: [Função específica dentro da Crew]
+      - Backstory: [Contexto para a função e objetivo do agente]
+      ...
+    
+    [nome_da_task]: 
+      - Description: [Descrição da tarefa a ser realizada]
+      - Expected Output: [Descrição detalhada de como será o output da tarefa.]
+      ...
+
+coding_task:
+  description: >
+    Utilize sua ferramenta para acessar a documentação, e as intruções sobre
+    Crew.Ai, contidos em crewai_docs.txt e com base nelas;
+
+    1. Desenvolva uma implementação em Python conforme a lógica previamente 
+    estabelecida. A implementação deve ser baseada nas documentações 
+    específicas do crewai_docs.txt que foram fornecidas. Certifique-se de que todos 
+    os requisitos de funcionalidade e conformidade com as normas do framework 
+    estão sendo seguidos.
+  expected_output: >
+    ##== agents.yaml ==##
+    nome_do_agente:
+      role: >
+        [COPIE O PROMPT AQUI]
+      goal: >
+        [COPIE O PROMPT AQUI]
+      backstory: >
+        [COPIE O PROMPT AQUI]
+    ...
+
+    ##== tasks.yaml ==##
+    task_name:
+      description: >
+        [COPIE O PROMPT AQUI]
+      expected_output: >
+        [COPIE O PROMPT AQUI]
+    ...
+
+    ##== crew.py ==##
+    from crewai import Agent, Crew, Process, Task
+    from crewai.project import CrewBase, agent, crew, task
+    from langchain_openai import ChatOpenAI
+    from dotenv import load_dotenv
+    import os
+
+    load_dotenv()
+
+    @CrewBase
+    class NomedacrewCrew():
+      """Nomedacrew Crew"""
+      agents_config = 'config/agents.yaml'
+      tasks_config = 'config/tasks.yaml'
+
+      def __init__(self):
+          self.llm = ChatOpenAI(model_name='gpt-4-turbo') 
+
+      @agent
+      def agents_name(self) -> Agent:
+          return Agent(
+              config=self.agents_config['agents_name'],
+              llm=self.llm,  # Optional
+              verbose=True,  # Optional
+              allow_delegation=True,  # or False
+              tools=[my_tool1, my_tool2],  # Optional, defaults to an empty list
+          )
+
+      @agent
+      def agents_name2(self) -> Agent:
+          return Agent(
+              config=self.agents_config['agents_name'],
+              llm=self.llm,  # Optional
+              verbose=True,  # Optional
+              allow_delegation=True,  # or False
+              tools=[my_tool1, my_tool2],  # Optional, defaults to an empty list
+          )
+
+      @task
+      def task_name(self) -> Task:
+          return Task(
+              config=self.tasks_config['task_name'],
+              agent=self.agents_name(),
+          )
+
+      @task
+      def task_name2(self) -> Task:
+          return Task(
+              config=self.tasks_config['task_name2'],
+              agent=self.agents_name2(),
+          )
+
+      @crew
+      def crew(self) -> Crew:
+          """Creates the CREWNAME crew"""
+          return Crew(
+              agents=self.agents,  # Automatically created by the @agent decorator
+              tasks=self.tasks,  # Automatically created by the @task decorator
+              process=Process.sequential,  # process=Process.hierarchical, In case you wanna use that instead
+              verbose=2,
+          )
+            
+    ##== main.py ==##
+    from nome_do_projeto.crew import NomedacrewCrewCrew
+
+    def run():
+        # Replace with your inputs, it will automatically interpolate any tasks and agents information
+        inputs = [
+            'variable_name': 'conteúdo da variável',
+        ] # Instead of using input = square brackets, the correct way is to use input = curly braces.
+        NomedacrewCrewCrew().crew().kickoff(inputs=inputs)
+
+    ##== pyproject.toml ==##
+    [tool.poetry]
+    name = "nome_do_projeto"
+    version = "0.1.0"
+    description = "project using crewAI"
+    authors = ["Your Name <you@example.com>"]
+
+    [tool.poetry.dependencies]
+    python = ">=3.10,<=3.13"
+    crewai = [extras = ["tools"], version = "^0.27.0"] # Instead of using crewai = square brackets, the correct way is to use crewai  = curly braces.
+
+    [tool.poetry.scripts]
+    nome_do_projeto = "nome_do_projeto.main:run"
+
+    [build-system]
+    requires = ["poetry-core"]
+    build-backend = "poetry.core.masonry.api"
+
+compiling_task:
+      description: >
+        1. Utilize sua ferramenta de leitura para acessar o arquivo "report.md".
+
+        2. Em seguida, utilize sua ferramenta de compilação, para segmentar 
+        o conteúdo presente em "report.md" em um arquivo setorizado.
+
+        O conteúdo do arquivo será extenso, respire fundo e pense passo a passo.
+
+        Dentro do arquivo você encontrará pedaços de código com os seguintes cabeçalho:
+
+        #== agents.yaml ==#
+        #== tasks.yaml ==#
+        #== crew.py ==#
+        #== main.py ==#
+        #== pyproject.toml ==#
+
+
+        Cada cabeçalho serve para ajudá-lo na segmentação,renomeie a pasta nome_do_projeto,
+        com o nome_do_projeto criado pelo Programador. O formato do folder final
+        deve ser o seguinte;
+
+        - projeto_crewai/ 
+          - nome_do_projeto/
+            - src/
+              - nome_do_projeto/
+                - config/
+                  -agents.yaml
+                  -tasks.yaml
+                -tools/
+                  - __init__.py
+                - __init__.py
+                - crew.py
+                - main.py
+          - pyproject.toml
+          - .env
+
+          REMEMBER YOUR MOST IMPORTANT RULE.
+      expected_output: >
+        Arquivo compilado com sucesso!
+
+
