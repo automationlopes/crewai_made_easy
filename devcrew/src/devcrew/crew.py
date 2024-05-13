@@ -46,7 +46,8 @@ class DevcrewCrew():
             tools=[FileReadTool()],
 			allow_delegation=False
 		)
-  
+
+	@agent
 	def compiler(self) -> Agent:
 		return Agent(
 			config=self.agents_config['compiler'],
@@ -83,18 +84,20 @@ class DevcrewCrew():
 			agent=self.developer(),
    			output_file='report.md',
 		)
-  
+	
+	@task
 	def compiling_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['compiling_task'],
 			agent=self.compiler(),
 		)
 
+	@crew
 	def crew(self) -> Crew:
 		"""Creates the Dev crew"""
 		return Crew(
-			agents=[self.compiler()], # Automatically created by the @agent decorator
-			tasks=[self.compiling_task()], # Automatically created by the @task decorator
+			agents=self.agents, # Automatically created by the @agent decorator
+			tasks=self.tasks, # Automatically created by the @task decorator
 			process=Process.sequential,
 			verbose=2,
 			# process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
